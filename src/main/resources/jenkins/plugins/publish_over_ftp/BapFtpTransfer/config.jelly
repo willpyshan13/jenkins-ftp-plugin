@@ -1,0 +1,102 @@
+<?jelly escape-by-default='true'?>
+
+<!--
+  ~ The MIT License
+  ~
+  ~ Copyright (C) 2010-2011 by Anthony Robinson
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in
+  ~ all copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  ~ THE SOFTWARE.
+  -->
+
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:poj="/pojelly">
+
+    <poj:defaultMessages/>
+    
+    <f:entry title="${m.sourceFiles()}" field="sourceFiles" help="${descriptor.getHelpFile((inPromotion and !matrixPromotion) ? 'sourceFilesForPromotion' : 'sourceFiles')}">
+        <f:textbox default="${defaults.transfer.sourceFiles}"/>
+    </f:entry>
+
+    <f:entry title="${m.removePrefix()}" field="removePrefix">
+        <f:textbox default="${defaults.transfer.removePrefix}"/>
+    </f:entry>
+
+    <f:entry title="${m.remoteDirectory()}" field="remoteDirectory">
+        <f:textbox default="${defaults.transfer.remoteDirectory}"/>
+    </f:entry>
+    <f:entry title="上传接口" field="uploadUrl">
+            <f:textbox default="${defaults.transfer.uploadUrl}"/>
+     </f:entry>
+    <f:entry title="钉钉token" field="dingToken">
+            <f:textbox default="${defaults.transfer.dingToken}"/>
+     </f:entry>
+
+     <f:entry title="logo地址" field="logoUrl">
+            <f:textbox default="${defaults.transfer.logoUrl}"/>
+     </f:entry>
+
+     <f:entry title="更新日志" field="updateLog">
+            <f:textbox default="${defaults.transfer.updateLog}"/>
+     </f:entry>
+    <f:entry title="@人数" field="person">
+            <f:textbox default="${defaults.transfer.person}"/>
+     </f:entry>
+     <f:entry title="应用信息" field="platformInfo">
+            <f:textbox default="${defaults.transfer.platformInfo}"/>
+     </f:entry>
+    <f:description>
+        <j:out value='${m.transfers_envVars(rootURL)}'/>
+    </f:description>
+
+    <f:advanced>
+
+        <f:entry title="${m.excludes()}" field="excludes">
+            <f:textbox default="${defaults.transfer.excludes}"/>
+        </f:entry>
+
+        <f:entry title="${m.patternSeparator()}" field="patternSeparator">
+            <f:textbox default="${defaults.transfer.patternSeparator}"/>
+        </f:entry>
+
+        <f:entry title="${m.noDefaultExcludes()}" field="noDefaultExcludes">
+            <f:checkbox default="${defaults.transfer.noDefaultExcludes}"/>
+        </f:entry>
+
+        <f:entry title="${m.makeEmptyDirs()}" field="makeEmptyDirs">
+            <f:checkbox default="${defaults.transfer.makeEmptyDirs}"/>
+        </f:entry>
+
+        <f:entry title="${m.flatten()}" field="flatten">
+            <f:checkbox default="${defaults.transfer.flatten}"/>
+        </f:entry>
+
+        <f:entry title="${m.remoteDirectorySDF()}" field="remoteDirectorySDF">
+            <f:checkbox default="${defaults.transfer.remoteDirectorySDF}"/>
+        </f:entry>
+
+        <f:entry title="${m.cleanRemote()}" field="cleanRemote">
+            <f:checkbox default="${defaults.transfer.cleanRemote}"/>
+        </f:entry>
+
+        <f:entry title="${%asciiMode}" field="asciiMode">
+            <f:checkbox default="${defaults.transfer.asciiMode}"/>
+        </f:entry>
+
+    </f:advanced>
+
+</j:jelly>
