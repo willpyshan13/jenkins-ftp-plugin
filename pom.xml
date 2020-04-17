@@ -150,6 +150,14 @@
     </distributionManagement>
     
     <repositories>
+	<repository>
+            <id>image-plugin</id>
+            <url>http://maven.imagej.net/content/repositories/public/</url>
+        </repository>
+        <repository>
+            <id>spring-plugin</id>
+            <url>https://repo.spring.io/plugins-release/</url>
+        </repository>
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
