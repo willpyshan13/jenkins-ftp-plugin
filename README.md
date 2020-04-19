@@ -1,3 +1,7 @@
-publish-over-ftp-plugin
+jenkins ftp插件
 
+配合gradle脚本使用
+
+1、上传成功之后降应用信息上传到后台，需要配合
+2、上传成功之后发送消息到钉钉，支持多条消息发送
 
