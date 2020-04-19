@@ -167,9 +167,8 @@ public class BapFtpClient extends BPDefaultClient<BapFtpTransfer> {
                 String clientId = filePath.getName().endsWith(".apk") ? "1" : "2";
                 //先上传到应用平台获取token
                 if (packageInfo.length >= 5) {
-//                    String token = UploadUtils.uploadInfo(client.getUploadUrl(), packageInfo[0], packageInfo[1], packageInfo[0], client.getLogoUrl(), packageInfo[3], clientId, "", client.getUpdateLog());
+                    String token = UploadUtils.uploadInfo(client.getUploadUrl(), packageInfo[0], packageInfo[1], packageInfo[0], client.getLogoUrl(), packageInfo[3], clientId, client.getRemoteDirectory()+filePath.getName(), client.getUpdateLog());
                     //再发送消息到钉钉
-                    String token = "999999";
                     message.sendMultiMessage(packageInfo[1], client.getDingToken(), client.getUpdateLog(), client.getPerson(), client.getPlatformInfo(), token);
                 }
             }
